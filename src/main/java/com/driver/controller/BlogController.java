@@ -31,15 +31,15 @@ public class BlogController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
     //get blog by Id
-    @GetMapping("/BlogById")
-    public ResponseEntity<Blog> GetBlog(@RequestParam int id){
-        Blog blog = blogService.findBlogById(id);
-        return new ResponseEntity<>(blog,HttpStatus.OK);
-    }
+//    @GetMapping("/BlogById")
+//    public ResponseEntity<Blog> GetBlog(@RequestParam int id){
+//        Blog blog = blogService.findBlogById(id);
+//        return new ResponseEntity<>(blog,HttpStatus.OK);
+//    }
     @PutMapping("/{blogId}/add-image")
     public ResponseEntity<String> addImage(@PathVariable int blogId, @RequestParam String description, @RequestParam String dimensions) {
-
-            return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
+        blogService.addImage(blogId,description,dimensions);
+        return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/{blogId}")
