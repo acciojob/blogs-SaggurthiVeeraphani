@@ -19,18 +19,11 @@ public class ImageService {
     public Image createAndReturn(Blog blog, String description, String dimensions){
         //create an image based on given parameters and add it to the imageList of given blog
         Image image = new Image();
-        image.setBlog(blog);
         image.setDescription(description);
         image.setDimensions(dimensions);
-
-//        List<Image> imageList = blog.getImageList();
-//        imageList.add(image);
-//        blog.setImageList(imageList);
-
+        image.setBlog(blog);
         imageRepository2.save(image);
-
         return image;
-
     }
 
     public void deleteImage(Image image){
