@@ -8,8 +8,8 @@ import java.util.List;
 @Table
 public class Blog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private int id;
 
     private String title;
 
