@@ -8,7 +8,7 @@ import java.util.List;
 @Table
 public class Blog {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
         private int id;
 
     private String title;
