@@ -51,8 +51,8 @@ public class BlogService {
         blogList.add(blog);
         user.setBlogList(blogList);
         userRepository1.save(user);
-
-        blogRepository1.save(blog);
+//Only calling the parent userRepository function as the child function will automatically be called by cascading
+//        blogRepository1.save(blog);
 
     }
 
@@ -82,10 +82,8 @@ public class BlogService {
     public void deleteBlog(int blogId){
         //delete blog and corresponding images
         Blog blog = blogRepository1.findById(blogId).get();
-        List<Image> imageList = blog.getImageList();
-        for(Image image:imageList){
-            imageRepository.delete(image);
+        if(blog!=null){
+            blogRepository1.delete(blog);
         }
-        blogRepository1.delete(blog);
     }
 }

@@ -33,20 +33,8 @@ public class ImageService {
 
     }
 
-    public void deleteImage(int id){
-        Image image = imageRepository2.findById(id).get();
-
-        Blog blog = image.getBlog();
-        List<Image> imageList = blog.getImageList();
-        for(Image image1:imageList){
-            if(image1 == image){
-                imageList.remove(image1);
-            }
-        }
-        blog.setImageList(imageList);
-        blogRepository.save(blog);//As it is deleted in blog respository no need to remove in imagerepository;
-
-
+    public void deleteImage(Image image){
+       imageRepository2.delete(image);
     }
 
     public Image findById(int id) {
