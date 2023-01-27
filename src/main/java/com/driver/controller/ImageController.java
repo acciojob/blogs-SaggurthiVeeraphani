@@ -36,12 +36,12 @@ public class ImageController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/GetImage/{id}")
-    public ResponseEntity<Image> GetBlogbyId(@PathVariable int id){
-
-      Image image = imageService.findById(id);
-      return new ResponseEntity<>(image,HttpStatus.OK);
-    }
+//    @GetMapping("/GetImage/{id}")
+//    public ResponseEntity<Image> GetBlogbyId(@PathVariable int id){
+//
+//      Image image = imageService.findById(id);
+//      return new ResponseEntity<>(image,HttpStatus.OK);
+//    }
 }
 
 
