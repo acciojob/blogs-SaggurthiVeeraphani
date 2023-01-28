@@ -64,19 +64,23 @@ public class BlogService {
 
     public void addImage(Integer blogId, String description, String dimensions){
         //add an image to the blog after creating it
-        Image image = new Image();
+//        Image image = new Image();
+//        Blog blog = blogRepository1.findById(blogId).get();
+//        image.setBlog(blog);
+//        image.setDimensions(dimensions);
+//        image.setDescription(description);
+//
+//        List<Image> imageList = blog.getImageList();
+//        imageList.add(image);
+//        blog.setImageList(imageList);
+//
+//        blogRepository1.save(blog);//As saved in parent image need not to be saved in image Repository;
         Blog blog = blogRepository1.findById(blogId).get();
-        image.setBlog(blog);
-        image.setDimensions(dimensions);
-        image.setDescription(description);
-
+        Image image = imageService1.createAndReturn(blog,description,dimensions);
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
         blog.setImageList(imageList);
-
-        blogRepository1.save(blog);//As saved in parent image need not to be saved in image Repository;
-
-
+        blogRepository1.save(blog);//Just calling the parent repository and child repository will automatically be called.
     }
 
     public void deleteBlog(int blogId){
